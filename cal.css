@@ -1,0 +1,88 @@
+:root {
+  --bg: #787886;
+  --panel: #727286;
+  --text: #040405;
+  --muted: hsl(209, 40%, 83%);
+  --accent: #4a67ff;
+  --op: #282930;
+  --danger: #ff6b6b;
+  --success: #2ecc71;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.app { width: 100%; max-width: 360px; padding: 16px; }
+.topbar {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
+}
+.topbar h1 { font-size: 18px; margin: 0; color: var(--muted); }
+#themeToggle {
+  border: none; background: var(--panel); color: var(--text);
+  padding: 8px 10px; border-radius: 8px; cursor: pointer;
+}
+
+.calculator {
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 24px rgba(11, 10, 10, 0.25);
+}
+
+#display {
+  width: 100%;
+  height: 64px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 28px;
+  text-align: right;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  height: 52px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text);
+  background: #aeb2bd;
+  transition: transform 0.05s ease, background 0.2s ease;
+}
+button:active { transform: scale(0.98); }
+
+button.op { background: var(--op); }
+button.equals { background: var(--accent); }
+button.zero { grid-column: span 2; }
+button[data-action="clear"] { background: var(--danger); }
+button[data-action="delete"] { background: #3a3d4a; }
+
+button:hover { filter: brightness(1.1); }
+
+/* Light theme */
+.light {
+  --bg: #dfdfe4;
+  --panel: #d3c7c7;
+  --text: #010207;
+  --muted: #6f7883;
+  --accent: #0d39d6;
+  --op: #ededff;
+  --danger: #e53935;
+  --success: #2e7d32;
+}
